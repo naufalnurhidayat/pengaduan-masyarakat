@@ -1,0 +1,26 @@
+.jumbotron {
+    background-color: #759aff;
+    padding: 100px 0;
+}
+
+#aboutus {
+    padding: 60px 0;
+}
+
+#ourservice {
+    padding: 60px 0;
+    background-color: #759aff;
+}
+
+#gallery {
+    padding: 60px 0;
+}
+
+#footer {
+    padding: 60px 0;
+    background-color: #759aff;
+}
+
+#footer .container a {
+    text-decoration: none;
+}
