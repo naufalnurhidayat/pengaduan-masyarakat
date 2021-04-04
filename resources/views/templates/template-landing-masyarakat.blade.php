@@ -28,6 +28,7 @@
           <a class="nav-link active" href="#ourservice">Pelayanan Kami</a>
           <a class="nav-link active" href="#gallery">Contoh Permasalahan</a>
           <a class="nav-link active" href="{{ url('/report') }}">Laporkan Masalah</a>
+          <a class="nav-link active btn btn-warning me-2" href="{{ url('/regist') }}">Registrasi</a>
           <a class="nav-link active btn btn-success" href="{{ url('/login') }}">Login</a>
         </div>
       </div>

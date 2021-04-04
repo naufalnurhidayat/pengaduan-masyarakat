@@ -4,6 +4,12 @@
 
 @section('content')
 
+@if(session('danger'))
+    <div class="alert alert-danger mt-2">
+    {{ session('danger') }}
+    </div>
+@endif
+
 <div class="container">
     <div class="row mt-4">
         <div class="col"><h3>Riwayat Laporan</h3></div>
@@ -36,7 +42,7 @@
                         @endif
                         <td><img src="{{ asset('img/report/' . $report->foto) }}" alt="Laporan" width="100"></td>
                         @if( $report->status == 'selesai' )
-                            <td><a class="btn btn-primary" href="{{ url('/laporan/tanggapan/' . $report->id ) }}">Lihat Tanggapan</a></td>
+                            <td><a class="btn btn-primary" href="{{ url('/report/respond/' . $report->id ) }}">Lihat Tanggapan</a></td>
                         @endif
                     </tr>
                 @endforeach

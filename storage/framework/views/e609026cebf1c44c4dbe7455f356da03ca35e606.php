@@ -10,6 +10,7 @@
     <h1 class="display-4">Selamat datang di website Pelaporan Masyarakat</h1>
     <p class="lead">Silahkan klik <b>"Laporkan Masalah"</b> jika anda ingin melaporkan permasalahan lingkungan.</p>
     <a class="btn btn-danger btn-lg" href="<?php echo e(url('/report')); ?>" role="button">Laporkan Masalah</a>
+    <a class="btn btn-info ms-2 btn-lg text-white" href="<?php echo e(url('/userguide')); ?>" role="button">Petunjuk Penggunaan</a>
     </div>
 </section>
 <!-- End Hero Banner -->

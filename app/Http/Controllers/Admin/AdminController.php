@@ -11,6 +11,7 @@ use App\Pengaduan;
 use App\Petugas;
 use App\Tanggapan;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class AdminController extends Controller
 {
@@ -215,5 +216,12 @@ class AdminController extends Controller
         ]);
 
         return redirect('/admin/report')->with('status', 'Laporan berhasil ditanggapi');
+    }
+
+    public function exportPDF()
+    {
+        $pengaduan = Pengaduan::all();
+        $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
+        return $pdf->stream('Data Pengaduan.pdf');
     }
 }

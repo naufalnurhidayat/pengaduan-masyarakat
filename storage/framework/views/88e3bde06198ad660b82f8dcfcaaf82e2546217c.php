@@ -4,6 +4,13 @@
 
 <?php $__env->startSection('content'); ?>
 
+<?php if(session('danger')): ?>
+    <div class="alert alert-danger mt-2">
+    <?php echo e(session('danger')); ?>
+
+    </div>
+<?php endif; ?>
+
 <div class="container">
     <div class="row mt-4">
         <div class="col"><h3>Riwayat Laporan</h3></div>
@@ -36,7 +43,7 @@
                         <?php endif; ?>
                         <td><img src="<?php echo e(asset('img/report/' . $report->foto)); ?>" alt="Laporan" width="100"></td>
                         <?php if( $report->status == 'selesai' ): ?>
-                            <td><a class="btn btn-primary" href="<?php echo e(url('/laporan/tanggapan/' . $report->id )); ?>">Lihat Tanggapan</a></td>
+                            <td><a class="btn btn-primary" href="<?php echo e(url('/report/respond/' . $report->id )); ?>">Lihat Tanggapan</a></td>
                         <?php endif; ?>
                     </tr>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

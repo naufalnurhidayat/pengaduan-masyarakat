@@ -10,7 +10,8 @@
         <?php echo e(session('status')); ?>
 
         </div>
-    <?php endif; ?>  
+    <?php endif; ?> 
+    <div class="my-3"><a target="_blank" href="<?php echo e(url('/admin/exportPDF')); ?>" class="btn btn-primary">Export PDF</a></div>
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive">

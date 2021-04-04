@@ -14,4 +14,9 @@ class Pengaduan extends Model
     {
         return $this->belongsTo('App\Masyarakat', 'id_masyarakat', 'id');
     }
+
+    public function tanggapan()
+    {
+        return $this->belongsTo('App\Tanggapan', 'id_pengaduan', 'id');
+    }
 }

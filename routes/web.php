@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'Masyarakat\MasyarakatController@index');
+Route::get('/userguide', 'Masyarakat\MasyarakatController@userGuide');
 Route::get('/login', 'AuthController@login')->name('login');
 Route::post('/login', 'AuthController@loginHandler');
 Route::get('/regist', 'Masyarakat\MasyarakatController@create');
@@ -30,6 +31,7 @@ Route::group(['middleware' => 'auth:masyarakat'], function() {
     Route::patch('/account/edit', 'Masyarakat\MasyarakatController@update');
     Route::delete('/account/delete', 'Masyarakat\MasyarakatController@destroy');
     Route::get('/history', 'Masyarakat\MasyarakatController@history');
+    Route::get('/report/respond/{id}', 'Masyarakat\MasyarakatController@respond');
 });
 
 Route::group(['middleware' => 'auth:Petugas'], function() {
@@ -69,6 +71,7 @@ Route::group(['middleware' => 'auth:Petugas'], function() {
         Route::patch('/admin/report/process/{id}', 'Admin\AdminController@process');
         Route::get('/admin/report/respond/{id}', 'Admin\AdminController@respond');
         Route::post('/admin/report/respond/{id}', 'Admin\AdminController@respondHandle');
+        Route::get('/admin/exportPDF', 'Admin\AdminController@exportPDF');
     });
     
 });

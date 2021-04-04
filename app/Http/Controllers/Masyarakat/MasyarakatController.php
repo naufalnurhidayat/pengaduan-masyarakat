@@ -164,4 +164,19 @@ class MasyarakatController extends Controller
         
         return view('masyarakat.history', compact('pengaduan'));
     }
+
+    public function respond($id)
+    {
+        $respond = Tanggapan::where('id_pengaduan', $id)->first();
+        if(is_object($respond) == 1) {
+            return view('masyarakat.respond', compact('respond'));
+        } else {
+            return redirect('/history')->with('danger', 'Laporan anda belum ditanggapi');
+        }
+    }
+
+    public function userGuide()
+    {
+        return view('masyarakat.guide');
+    }
 }

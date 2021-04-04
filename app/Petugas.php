@@ -13,4 +13,9 @@ class Petugas extends Authenticatable
     protected $guard = 'Petugas';
     protected $table = 'petugas';
     protected $fillable = ['nama', 'username', 'password', 'email', 'telp', 'level'];
+
+    public function tanggapan()
+    {
+        return $this->hasMany('App\Tanggapan', 'id');
+    }
 }

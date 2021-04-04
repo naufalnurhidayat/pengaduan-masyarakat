@@ -28,6 +28,7 @@
           <a class="nav-link active" href="#ourservice">Pelayanan Kami</a>
           <a class="nav-link active" href="#gallery">Contoh Permasalahan</a>
           <a class="nav-link active" href="<?php echo e(url('/report')); ?>">Laporkan Masalah</a>
+          <a class="nav-link active btn btn-warning me-2" href="<?php echo e(url('/regist')); ?>">Registrasi</a>
           <a class="nav-link active btn btn-success" href="<?php echo e(url('/login')); ?>">Login</a>
         </div>
       </div>

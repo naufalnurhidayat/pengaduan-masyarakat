@@ -9,7 +9,8 @@
         <div class="alert alert-success mt-2">
         {{ session('status') }}
         </div>
-    @endif  
+    @endif 
+    <div class="my-3"><a target="_blank" href="{{ url('/admin/exportPDF') }}" class="btn btn-primary">Export PDF</a></div>
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive">
