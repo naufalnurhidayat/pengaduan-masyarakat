@@ -72,6 +72,7 @@ Route::group(['middleware' => 'auth:Petugas'], function() {
         Route::get('/admin/report/respond/{id}', 'Admin\AdminController@respond');
         Route::post('/admin/report/respond/{id}', 'Admin\AdminController@respondHandle');
         Route::get('/admin/exportPDF', 'Admin\AdminController@exportPDF');
+        Route::post('/admin/exportPDF', 'Admin\AdminController@exportPDF');
     });
     
 });

@@ -218,10 +218,33 @@ class AdminController extends Controller
         return redirect('/admin/report')->with('status', 'Laporan berhasil ditanggapi');
     }
 
-    public function exportPDF()
+    public function exportPDF(Request $request)
     {
-        $pengaduan = Pengaduan::all();
-        $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
-        return $pdf->stream('Data Pengaduan.pdf');
+        $tgl_awal = $request->tgl_awal;
+        $tgl_akhir = $request->tgl_akhir;
+        $status = $request->status;
+        if($request) {
+            if($tgl_awal) {
+                $pengaduan = Pengaduan::where('tgl_pengaduan', $tgl_awal)->get();
+                $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
+                return $pdf->stream('Data Pengaduan ' . $tgl_awal . '.pdf');
+            } else if($tgl_awal && $tgl_akhir) {
+                $pengaduan = Pengaduan::whereBetween('tgl_pengaduan', [$tgl_awal, $tgl_akhir])->get();
+                $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
+                return $pdf->stream('Data Pengaduan ' . $tgl_awal . '-' . $tgl_akhir . '.pdf');
+            } else if($tgl_awal && $tgl_akhir && $status) {
+                $pengaduan = Pengaduan::where('tgl_pengaduan', $tgl_awal)->get();
+                $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
+                return $pdf->download('Data Pengaduan ' . $tgl_awal . '.pdf');
+            } else if($status) {
+                $pengaduan = Pengaduan::where('tgl_pengaduan', $tgl_awal)->get();
+                $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
+                return $pdf->download('Data Pengaduan ' . $tgl_awal . '.pdf');
+            }
+        } else {
+            $pengaduan = Pengaduan::all();
+            $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
+            return $pdf->stream('Data Pengaduan.pdf');
+        }
     }
 }

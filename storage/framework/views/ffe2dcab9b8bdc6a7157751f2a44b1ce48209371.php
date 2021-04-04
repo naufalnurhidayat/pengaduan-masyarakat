@@ -11,7 +11,10 @@
 
         </div>
     <?php endif; ?> 
-    <div class="my-3"><a target="_blank" href="<?php echo e(url('/admin/exportPDF')); ?>" class="btn btn-primary">Export PDF</a></div>
+    <div class="my-3">
+        <a target="_blank" href="<?php echo e(url('/admin/exportPDF')); ?>" class="btn btn-primary">Export PDF</a>
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Filter Export</button>
+    </div>
     <div class="card mb-4">
         <div class="card-body">
             <div class="table-responsive">
@@ -60,5 +63,36 @@
             </div>
         </div>
     </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Filter Data</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo e(url('/admin/exportPDF')); ?>" method="POST">
+        <?php echo csrf_field(); ?>
+            <div class="form-group">
+                <label for="tgl_awal">Tanggal Awal</label>
+                <input type="date" class="form-control" id="tgl_awal" name="tgl_awal">
+            </div>
+            <div class="form-group">
+                <label for="tgl_akhir">Tanggal Akhir</label>
+                <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir">
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('templates.template-admin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\pengaduanMasyarakat\resources\views/admin/report.blade.php ENDPATH**/ ?>
