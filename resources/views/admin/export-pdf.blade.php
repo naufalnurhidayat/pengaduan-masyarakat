@@ -29,7 +29,7 @@
             <td>{{ $p->tgl_pengaduan }}</td>
             <td>{{ $p->isi_laporan }}</td>
             @if($p->status == '0')
-                <td>Tidak Ada</td>
+                <td>Pending</td>
             @elseif($p->status == 'proses')
                 <td>Diproses</td>
             @else

@@ -10,9 +10,15 @@
         <?php echo e(session('status')); ?>
 
         </div>
-    <?php endif; ?> 
+    <?php endif; ?>
+    <?php if(session('danger')): ?>
+        <div class="alert alert-danger mt-2">
+        <?php echo e(session('danger')); ?>
+
+        </div>
+    <?php endif; ?>
     <div class="my-3">
-        <a target="_blank" href="<?php echo e(url('/admin/exportPDF')); ?>" class="btn btn-primary">Export PDF</a>
+        <a target="_blank" href="<?php echo e(url('/admin/exportpdf')); ?>" class="btn btn-primary">Export PDF</a>
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Filter Export</button>
     </div>
     <div class="card mb-4">
@@ -75,7 +81,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="<?php echo e(url('/admin/exportPDF')); ?>" method="POST">
+        <form target="_blank" action="<?php echo e(url('/admin/exportpdf')); ?>" method="POST">
         <?php echo csrf_field(); ?>
             <div class="form-group">
                 <label for="tgl_awal">Tanggal Awal</label>
@@ -84,6 +90,15 @@
             <div class="form-group">
                 <label for="tgl_akhir">Tanggal Akhir</label>
                 <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir">
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="">--Pilih Status--</option>
+                    <option value="pending">Pending</option>
+                    <option value="proses">Diproses</option>
+                    <option value="selesai">Selesai</option>
+                </select>
             </div>
       </div>
       <div class="modal-footer">

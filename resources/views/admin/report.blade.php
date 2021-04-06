@@ -9,9 +9,14 @@
         <div class="alert alert-success mt-2">
         {{ session('status') }}
         </div>
-    @endif 
+    @endif
+    @if(session('danger'))
+        <div class="alert alert-danger mt-2">
+        {{ session('danger') }}
+        </div>
+    @endif
     <div class="my-3">
-        <a target="_blank" href="{{ url('/admin/exportPDF') }}" class="btn btn-primary">Export PDF</a>
+        <a target="_blank" href="{{ url('/admin/exportpdf') }}" class="btn btn-primary">Export PDF</a>
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Filter Export</button>
     </div>
     <div class="card mb-4">
@@ -74,7 +79,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{ url('/admin/exportPDF') }}" method="POST">
+        <form target="_blank" action="{{ url('/admin/exportpdf') }}" method="POST">
         @csrf
             <div class="form-group">
                 <label for="tgl_awal">Tanggal Awal</label>
@@ -83,6 +88,15 @@
             <div class="form-group">
                 <label for="tgl_akhir">Tanggal Akhir</label>
                 <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir">
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" id="status" name="status">
+                    <option value="">--Pilih Status--</option>
+                    <option value="pending">Pending</option>
+                    <option value="proses">Diproses</option>
+                    <option value="selesai">Selesai</option>
+                </select>
             </div>
       </div>
       <div class="modal-footer">

@@ -29,7 +29,7 @@
             <td><?php echo e($p->tgl_pengaduan); ?></td>
             <td><?php echo e($p->isi_laporan); ?></td>
             <?php if($p->status == '0'): ?>
-                <td>Tidak Ada</td>
+                <td>Pending</td>
             <?php elseif($p->status == 'proses'): ?>
                 <td>Diproses</td>
             <?php else: ?>

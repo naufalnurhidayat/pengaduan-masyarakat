@@ -220,26 +220,37 @@ class AdminController extends Controller
 
     public function exportPDF(Request $request)
     {
+        $token = $request->_token;
         $tgl_awal = $request->tgl_awal;
         $tgl_akhir = $request->tgl_akhir;
         $status = $request->status;
-        if($request) {
-            if($tgl_awal) {
-                $pengaduan = Pengaduan::where('tgl_pengaduan', $tgl_awal)->get();
-                $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
-                return $pdf->stream('Data Pengaduan ' . $tgl_awal . '.pdf');
-            } else if($tgl_awal && $tgl_akhir) {
+        if($token && !$tgl_awal && !$tgl_akhir && !$status) {
+            return back()->with('danger', 'Filter anda kosong');
+        } else if($request) {
+            if($tgl_awal && $tgl_akhir && !$status) {
                 $pengaduan = Pengaduan::whereBetween('tgl_pengaduan', [$tgl_awal, $tgl_akhir])->get();
                 $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
                 return $pdf->stream('Data Pengaduan ' . $tgl_awal . '-' . $tgl_akhir . '.pdf');
+            } else if($tgl_awal && !$status && !$tgl_akhir) {
+                $pengaduan = Pengaduan::where('tgl_pengaduan', $tgl_awal)->get();
+                $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
+                return $pdf->stream('Data Pengaduan ' . $tgl_awal . '.pdf');
             } else if($tgl_awal && $tgl_akhir && $status) {
-                $pengaduan = Pengaduan::where('tgl_pengaduan', $tgl_awal)->get();
+                // $pengaduan = Pengaduan::whereBetween('tgl_pengaduan', [$tgl_awal, $tgl_akhir])->orWhere('status', $status)->get();
+                $pengaduan = Pengaduan::where([
+                                    ['tgl_pengaduan', '>=', $tgl_awal],
+                                    ['tgl_pengaduan', '<=', $tgl_akhir],
+                                    ['status', '=', $status]
+                                ])->get();
                 $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
-                return $pdf->download('Data Pengaduan ' . $tgl_awal . '.pdf');
-            } else if($status) {
-                $pengaduan = Pengaduan::where('tgl_pengaduan', $tgl_awal)->get();
+                return $pdf->stream('Data Pengaduan ' . $tgl_awal . '.pdf');
+            } else if($status && !$tgl_akhir && !$tgl_awal) {
+                if($status == 'pending') {
+                    $status = '0';
+                }
+                $pengaduan = Pengaduan::where('status', $status)->get();
                 $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
-                return $pdf->download('Data Pengaduan ' . $tgl_awal . '.pdf');
+                return $pdf->stream('Data Pengaduan ' . $status . '.pdf');
             }
         } else {
             $pengaduan = Pengaduan::all();
