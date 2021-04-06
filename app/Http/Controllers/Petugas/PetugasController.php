@@ -9,6 +9,7 @@ use App\Petugas;
 use App\Masyarakat;
 use App\Pengaduan;
 use App\Tanggapan;
+use File;
 
 class PetugasController extends Controller
 {
@@ -144,6 +145,8 @@ class PetugasController extends Controller
     public function hapusLaporan($id)
     {
         Pengaduan::findOrFail($id)->delete();
+        $foto = Pengaduan::findOrFail($id)->first();
+        File::delete('img/report/' . $foto->foto);
         return redirect('/petugas/laporan')->with('status', 'Laporan berhasil dihapus');
     }
 }

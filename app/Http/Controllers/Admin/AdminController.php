@@ -12,6 +12,7 @@ use App\Petugas;
 use App\Tanggapan;
 use Illuminate\Support\Facades\Auth;
 use PDF;
+use File;
 
 class AdminController extends Controller
 {
@@ -174,7 +175,6 @@ class AdminController extends Controller
     public function report()
     {
         $pengaduan = Pengaduan::all();
-        // dd($pengaduan);
         return view('admin.report', compact('pengaduan'));
     }
 
@@ -186,6 +186,8 @@ class AdminController extends Controller
 
     public function deleteReport($id)
     {
+        $foto = Pengaduan::findOrFail($id)->first();
+        File::delete('img/report/' . $foto->foto);
         Pengaduan::findOrFail($id)->delete();
         return redirect('/admin/report')->with('status', 'Laporan berhasil dihapus');
     }

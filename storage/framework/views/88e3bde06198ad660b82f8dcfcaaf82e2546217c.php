@@ -4,6 +4,12 @@
 
 <?php $__env->startSection('content'); ?>
 
+<?php if(session('status')): ?>
+    <div class="alert alert-success mt-2">
+    <?php echo e(session('status')); ?>
+
+    </div>
+<?php endif; ?>
 <?php if(session('danger')): ?>
     <div class="alert alert-danger mt-2">
     <?php echo e(session('danger')); ?>

@@ -149,7 +149,7 @@ class MasyarakatController extends Controller
         } else {
             return redirect('/report')->with('danger', 'Lapor gagal!');
         }
-        return redirect('/home')->with('status', 'Terima kasih atas laporan Anda');
+        return redirect('/history')->with('status', 'Terima kasih atas laporan Anda');
     }
 
     public function account()

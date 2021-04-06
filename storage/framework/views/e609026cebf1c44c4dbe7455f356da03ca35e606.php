@@ -25,10 +25,10 @@
         </div>
         <div class="row mt-3 text-center justify-content-center">
             <div class="col-md-5">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolor fugiat sed. Iure sed, et cupiditate enim explicabo id possimus obcaecati ducimus, doloribus dolorem, voluptates quidem iusto a laudantium esse?</p>
+                <p>Kami adalah satuan petugas yang menangani permasalahan sosial secara online. Contoh-contoh permasalahan tersebut telah kami lampirkan pada bagian "Contoh Permasalahan". Jika anda menenukan permasalahan lebih dari itu, silahkan laporkan kepada kami.</p>
             </div>
             <div class="col-md-5">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolor fugiat sed. Iure sed, et cupiditate enim explicabo id possimus obcaecati ducimus, doloribus dolorem, voluptates quidem iusto a laudantium esse?</p>
+                <p>Laporan yang anda ajukan merupakan bahan yang akan kami peroses dan selesaikan. Mohon laporkan segera jika anda menemukan permasalahan sosial di sekitar anda. Kami akan segera merespon laporan anda, Terima Kasih atas kerja samanya.</p>
             </div>
         </div>
     </div>
@@ -46,49 +46,25 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/ourservices/1.png')); ?>" class="card-img-top" alt="1">
+                        <img src="<?php echo e(asset('img/ourservices/menerimalaporanmasyarakat.png')); ?>" class="card-img-top" alt="Menerima Laporan Masyarakat">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Menerima Laporan Masyarakat</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/ourservices/2.png')); ?>" class="card-img-top" alt="2">
+                        <img src="<?php echo e(asset('img/ourservices/menanggapilaporanmasyarakat.jpg')); ?>" class="card-img-top" alt="Menanggapi Laporan Masyarakat">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Menanggapi Laporan Masyarakat</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/ourservices/3.png')); ?>" class="card-img-top" alt="3">
+                        <img src="<?php echo e(asset('img/ourservices/menyelesaikanlaporan.jpg')); ?>" class="card-img-top" alt="Menyelesaikan Laporan Masyarakat">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="<?php echo e(asset('img/ourservices/4.png')); ?>" class="card-img-top" alt="4">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="<?php echo e(asset('img/ourservices/5.png')); ?>" class="card-img-top" alt="5">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <div class="card">
-                        <img src="<?php echo e(asset('img/ourservices/6.png')); ?>" class="card-img-top" alt="6">
-                        <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Menyelesaikan Laporan Masyarakat</p>
                         </div>
                     </div>
                 </div>
@@ -108,49 +84,49 @@
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/gallery problems/1.png')); ?>" class="card-img-top" alt="1">
+                        <img src="<?php echo e(asset('img/gallery problems/jalanrusak.jpg')); ?>" class="card-img-top" alt="Jalan Rusak">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Jalan Rusak</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/gallery problems/2.png')); ?>" class="card-img-top" alt="2">
+                        <img src="<?php echo e(asset('img/gallery problems/fasilitasumumrusak.jpeg')); ?>" class="card-img-top" alt="Fasilitas Umum Rusak">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Fasilitas Umum Rusak</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/gallery problems/3.png')); ?>" class="card-img-top" alt="3">
+                        <img src="<?php echo e(asset('img/gallery problems/jembatanputus.jpg')); ?>" class="card-img-top" alt="Jembatan Putus">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Jembatan Putus</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/gallery problems/4.png')); ?>" class="card-img-top" alt="4">
+                        <img src="<?php echo e(asset('img/gallery problems/tempatibadahrusak.jpg')); ?>" class="card-img-top" alt="Tempat Ibadah Rusak">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Tempat Ibadah Rusak</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/gallery problems/5.png')); ?>" class="card-img-top" alt="5">
+                        <img src="<?php echo e(asset('img/gallery problems/tamanrusak.jpg')); ?>" class="card-img-top" alt="Taman Rusak">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Taman Rusak</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <div class="card">
-                        <img src="<?php echo e(asset('img/gallery problems/6.png')); ?>" class="card-img-top" alt="6">
+                        <img src="<?php echo e(asset('img/gallery problems/permasalahansampah.jpg')); ?>" class="card-img-top" alt="Permasalahan Sampah">
                         <div class="card-body">
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text">Permasalahan Sampah</p>
                         </div>
                     </div>
                 </div>

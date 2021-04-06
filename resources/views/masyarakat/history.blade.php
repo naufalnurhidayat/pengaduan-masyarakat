@@ -4,6 +4,11 @@
 
 @section('content')
 
+@if(session('status'))
+    <div class="alert alert-success mt-2">
+    {{ session('status') }}
+    </div>
+@endif
 @if(session('danger'))
     <div class="alert alert-danger mt-2">
     {{ session('danger') }}
