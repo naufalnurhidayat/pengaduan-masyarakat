@@ -13,6 +13,7 @@ use App\Tanggapan;
 use Illuminate\Support\Facades\Auth;
 use PDF;
 use File;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -206,16 +207,32 @@ class AdminController extends Controller
 
     public function respondHandle(Request $request, $id)
     {
-        Pengaduan::findOrFail($id)->update(['status' => 'selesai']);
-
+        
         $request->validate(['tanggapan' => 'required']);
 
+        $emailAdmin = Petugas::where('id', auth()->user()->id)->first()->email;
+        $dataPengaduan = Pengaduan::where('id', $id)->first();
+        $emailMasyarakat = $dataPengaduan->masyarakat->email;
+
+        $data = [
+           'emailAdmin' => $emailAdmin,
+           'emailUser' => $emailMasyarakat 
+        ];
+        Mail::send('admin/email', $data, function ($message) use($emailMasyarakat){
+            $message->from('naufalnurhidayat510@gmail.com', 'Aplikasi Telkom');
+            $message->to($emailMasyarakat);
+            $message->subject('Laporan telah ditanggapi');
+        });
+        
+        Pengaduan::findOrFail($id)->update(['status' => 'selesai']);
+        
         Tanggapan::create([
             'id_pengaduan' => $id,
             'tgl_tanggapan' => date('Y-m-d'),
             'tanggapan' => $request->tanggapan,
             'id_petugas' => auth()->user()->id
         ]);
+
 
         return redirect('/admin/report')->with('status', 'Laporan berhasil ditanggapi');
     }
@@ -238,12 +255,8 @@ class AdminController extends Controller
                 $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
                 return $pdf->stream('Data Pengaduan ' . $tgl_awal . '.pdf');
             } else if($tgl_awal && $tgl_akhir && $status) {
-                // $pengaduan = Pengaduan::whereBetween('tgl_pengaduan', [$tgl_awal, $tgl_akhir])->orWhere('status', $status)->get();
-                $pengaduan = Pengaduan::where([
-                                    ['tgl_pengaduan', '>=', $tgl_awal],
-                                    ['tgl_pengaduan', '<=', $tgl_akhir],
-                                    ['status', '=', $status]
-                                ])->get();
+                // return 'ok';
+                $pengaduan = Pengaduan::where('status', $status)->whereBetween('tgl_pengaduan', [$tgl_awal, $tgl_akhir])->get();
                 $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
                 return $pdf->stream('Data Pengaduan ' . $tgl_awal . '.pdf');
             } else if($status && !$tgl_akhir && !$tgl_awal) {
