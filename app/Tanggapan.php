@@ -12,7 +12,7 @@ class Tanggapan extends Model
 
     public function pengaduan()
     {
-        return $this->hasOne('App\Pengaduan', 'id');
+        return $this->belongsTo('App\Pengaduan', 'id_pengaduan', 'id');
     }
 
     public function petugas()

@@ -12,8 +12,7 @@ use App\Petugas;
 use App\Tanggapan;
 use Illuminate\Support\Facades\Auth;
 use PDF;
-use File;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -209,20 +208,6 @@ class AdminController extends Controller
     {
         
         $request->validate(['tanggapan' => 'required']);
-
-        $emailAdmin = Petugas::where('id', auth()->user()->id)->first()->email;
-        $dataPengaduan = Pengaduan::where('id', $id)->first();
-        $emailMasyarakat = $dataPengaduan->masyarakat->email;
-
-        $data = [
-           'emailAdmin' => $emailAdmin,
-           'emailUser' => $emailMasyarakat 
-        ];
-        Mail::send('admin/email', $data, function ($message) use($emailMasyarakat){
-            $message->from('naufalnurhidayat510@gmail.com', 'Aplikasi Telkom');
-            $message->to($emailMasyarakat);
-            $message->subject('Laporan telah ditanggapi');
-        });
         
         Pengaduan::findOrFail($id)->update(['status' => 'selesai']);
         
@@ -255,7 +240,6 @@ class AdminController extends Controller
                 $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
                 return $pdf->stream('Data Pengaduan ' . $tgl_awal . '.pdf');
             } else if($tgl_awal && $tgl_akhir && $status) {
-                // return 'ok';
                 $pengaduan = Pengaduan::where('status', $status)->whereBetween('tgl_pengaduan', [$tgl_awal, $tgl_akhir])->get();
                 $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
                 return $pdf->stream('Data Pengaduan ' . $tgl_awal . '.pdf');
@@ -266,11 +250,11 @@ class AdminController extends Controller
                 $pengaduan = Pengaduan::where('status', $status)->get();
                 $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
                 return $pdf->stream('Data Pengaduan ' . $status . '.pdf');
+            } else {
+                $pengaduan = Pengaduan::all();
+                $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
+                return $pdf->stream('Data Pengaduan.pdf');
             }
-        } else {
-            $pengaduan = Pengaduan::all();
-            $pdf = PDF::loadView('admin.export-pdf', compact('pengaduan'));
-            return $pdf->stream('Data Pengaduan.pdf');
-        }
+        } 
     }
 }

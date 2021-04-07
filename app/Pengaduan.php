@@ -17,6 +17,6 @@ class Pengaduan extends Model
 
     public function tanggapan()
     {
-        return $this->belongsTo('App\Tanggapan', 'id_pengaduan', 'id');
+        return $this->hasOne('App\Tanggapan', 'id');
     }
 }
