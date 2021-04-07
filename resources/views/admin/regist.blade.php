@@ -19,7 +19,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="nama">Nama</label>
-                                                        <input class="form-control py-4 @error('nama') is-invalid @enderror" id="nama" type="text" placeholder="Nama" name="nama" required value="{{ old('nama') }}"/>
+                                                        <input class="form-control py-4 @error('nama') is-invalid @enderror" id="nama" type="text" placeholder="Nama" name="nama" required value="{{ old('nama') }}" maxlength="35" />
                                                         @error('nama') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                                     </div>
                                                 </div>
@@ -37,7 +37,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="username">Username</label>
-                                                <input class="form-control py-4 @error('username') is-invalid @enderror" id="username" type="text" placeholder="Username" name="username" value="{{ old('username') }}" required/>
+                                                <input class="form-control py-4 @error('username') is-invalid @enderror" id="username" type="text" placeholder="Username" name="username" value="{{ old('username') }}" required maxlength="25" />
                                                 @error('username') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                             </div>
                                             <div class="form-row">
@@ -67,7 +67,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="telp">Telpon</label>
-                                                        <input class="form-control py-4 @error('telp') is-invalid @enderror" id="telp" type="text" placeholder="Telpon" name="telp" required value="{{ old('telp') }}" />
+                                                        <input class="form-control py-4 @error('telp') is-invalid @enderror" id="telp" type="text" placeholder="Telpon" name="telp" required value="{{ old('telp') }}" maxlength="13" />
                                                         @error('telp') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                                     </div>
                                                 </div>

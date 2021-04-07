@@ -26,7 +26,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="nama" type="text" placeholder="Nama" name="nama" required value="<?php echo e(old('nama')); ?>"/>
+unset($__errorArgs, $__bag); ?>" id="nama" type="text" placeholder="Nama" name="nama" required value="<?php echo e(old('nama')); ?>" maxlength="35" />
                                                         <?php $__errorArgs = ['nama'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -47,7 +47,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="nik" type="text" placeholder="NIK" name="nik" required value="<?php echo e(old('nik')); ?>" />
+unset($__errorArgs, $__bag); ?>" id="nik" type="text" placeholder="NIK" name="nik" required value="<?php echo e(old('nik')); ?>" maxlength="16"/>
                                                         <?php $__errorArgs = ['nik'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -68,7 +68,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="username" type="text" placeholder="Username" name="username" value="<?php echo e(old('username')); ?>" required/>
+unset($__errorArgs, $__bag); ?>" id="username" type="text" placeholder="Username" name="username" value="<?php echo e(old('username')); ?>" required maxlength="25" />
                                                 <?php $__errorArgs = ['username'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -154,7 +154,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" id="telp" type="text" placeholder="Telpon" name="telp" required value="<?php echo e(old('telp')); ?>" />
+unset($__errorArgs, $__bag); ?>" id="telp" type="text" placeholder="Telpon" name="telp" required value="<?php echo e(old('telp')); ?>" maxlength="13" />
                                                         <?php $__errorArgs = ['telp'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

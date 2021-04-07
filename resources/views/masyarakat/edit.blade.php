@@ -36,7 +36,7 @@
                                                 <div class="col-md">
                                                     <div class="form-group">
                                                         <label class="small mb-1" for="telp">Telpon</label>
-                                                        <input class="form-control py-4 @error('telp') is-invalid @enderror" id="telp" type="text" placeholder="Telpon" name="telp" required value="{{ auth()->user()->telp }}" />
+                                                        <input class="form-control py-4 @error('telp') is-invalid @enderror" id="telp" type="text" placeholder="Telpon" name="telp" required value="{{ auth()->user()->telp }}" maxlength="13" />
                                                         @error('telp') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                                     </div>
                                                 </div>
